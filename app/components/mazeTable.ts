@@ -1,7 +1,6 @@
 import { FunctionalComponent, load, useRef } from 'emmy-dom'
 import { aStar } from '../algorithms/aStar'
 import { Maze } from '../structures/maze'
-import { genetic } from '../algorithms/genetic'
 
 const html = (strings, ...values) => {
   let htmlString = ''
@@ -22,8 +21,8 @@ export function mazeTable({ el } : { el: FunctionalComponent }) {
     el.querySelector('#a-star')?.addEventListener('click', () => {
       aStar(maze)
     })
-    el.querySelector('#genetic')?.addEventListener('click', () => {
-      genetic()
+    el.querySelector('#new-maze')?.addEventListener('click', () => {
+      maze.current = new Maze(size)
     })
   }, [])
 
@@ -33,8 +32,8 @@ export function mazeTable({ el } : { el: FunctionalComponent }) {
       <button id='a-star' class='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'>
         A*
       </button>
-      <button id='genetic' class='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'>
-        Genetic (see console)
+      <button id='new-maze' class='bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded'>
+        New Maze
       </button>
     </nav>
     <table class='border-collapse border-2 border-gray-700'>

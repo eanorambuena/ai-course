@@ -1,4 +1,4 @@
-export function genetic() {
+export function geneticAlgorithm() {
   const possibleCharacters = 'abcdefghijklmnopqrstuvwxyz'
   const adam = 'adam'
   const eve = 'even'
